@@ -42,9 +42,9 @@ function toks_to_lines(Toks){
 
 // Format CSS without @media
 function format_nomedia(Css) {
-    Css = Css.replaceAll("}","");
-    var Toks = Css.split("{");
-    var Open = Toks[0].trim();
+    Css         = Css.replaceAll("}","");
+    var Toks    = Css.split("{");
+    var Open    = Toks[0].trim();
     var Propstr = Toks[1].trim();
 
     // Put props into multiple lines
@@ -75,9 +75,9 @@ function format_withmedia(Css) {
         let Lines    = toks_to_lines(Toks);
 
         let Prefix = "\x20\x20\x20\x20\x20\x20\x20\x20";
-        Promcss += "\x20\x20\x20\x20"+ Selector+ "\x20{\n";
-        Promcss += Lines.map(X=>Prefix+X).join("\n");
-        Promcss += "\n\x20\x20\x20\x20}\n";
+        Promcss   += "\x20\x20\x20\x20"+ Selector+ "\x20{\n";
+        Promcss   += Lines.map(X=>Prefix+X).join("\n");
+        Promcss   += "\n\x20\x20\x20\x20}\n";
     }
 
     Promcss += "\n}\n";
@@ -134,11 +134,11 @@ function set_wysiwyg(){
 
 // Move element
 function move_ele(Data){
-    var Orig = Data.Orig_Sel;
-    var Dest = Data.Dest_Sel;
+    var Orig    = Data.Orig_Sel;
+    var Dest    = Data.Dest_Sel;
     var Origele = d$("body "+Orig);
     var Destele = d$("body "+Dest);
-    if (Orig==Dest) return "err";
+    if (Orig==Dest)                     return "err";
     if (Origele==null || Destele==null) return "err";
 
     // Dest can't be inside orig, dragging inside descendants

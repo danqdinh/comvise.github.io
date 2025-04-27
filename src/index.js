@@ -74,8 +74,8 @@ function _____MISCS_____(){}
 // Show html saving warning
 function show_html_saving_warn(){
     alert("After rendering with 'Apply Edit' button, browser puts texts in structured tag "+
-        "outside of the tag. Eg., some frameworks put 'for' loop outside of TR to loop TR tag, "+
-        "but browser moves that 'for' loop outside of TABLE tag.");
+          "outside of the tag. Eg., some frameworks put 'for' loop outside of TR to loop TR tag, "+
+          "but browser moves that 'for' loop outside of TABLE tag.");
 }
 
 function _____EDITORS_____(){}
@@ -164,7 +164,7 @@ function _____IFRAME_____(){}
 // Ref: https://stackoverflow.com/a/998241/5581893
 function write_iframe(Html){
     var ifrm = document.getElementById('Visual-Frame');
-    ifrm = ifrm.contentWindow || ifrm.contentDocument.document || ifrm.contentDocument;
+    ifrm     = ifrm.contentWindow || ifrm.contentDocument.document || ifrm.contentDocument;
     ifrm.document.open();
     ifrm.document.write(Html);
     ifrm.document.close();
@@ -173,6 +173,7 @@ function write_iframe(Html){
 // Message from iframe
 var Msg_Handlers = {};
 
+// Handle message from iframe
 function on_message(Ev){
     try{
         var Obj = obj(Ev.data);    
@@ -436,10 +437,6 @@ function show_dom_struct() {
 // This takes from editors (HTML,css), an other DOM edit funcs 
 // should put to editors.
 async function show_visual(){
-    // if (Html_File==null || Css_File==null){
-    //     alert("Must load both HTML and CSS files");
-    //     return;
-    // }
     d$("#Caption").innerHTML = 
         `<big><b>WYSIWYG</b></big> (Edit CSS with DevTools, contenteditable attr is stripped)`;
     d$("#Visual-Box").style.display = "block";
